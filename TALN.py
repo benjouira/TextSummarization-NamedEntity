@@ -100,3 +100,27 @@ maxSentWeight
 for key in tokenSentences.keys():
     if key in maxSentWeight:
         print (tokenSentences[key])
+
+#         ********************************************************************
+
+# Extract all sentences which have named entity (DATE)
+
+def findNamedEntity(sentences):
+    doc=nlp(sentences)
+    for token in doc:
+        if ( token.ent_type_ =='DATE'):
+            print(token.text, token.ent_type_  )
+            return True
+        
+# ********************
+NbDateSentences =0
+for key in tokenSentences.keys():
+    if (findNamedEntity(str(tokenSentences[key]))):
+        print (tokenSentences[key])
+        NbDateSentences +=1
+        
+        print ("****************")
+    maxkey=key
+    
+# ************************
+print("Le taux que represente les phrase qui ont une entity nommée DATE par raport le text est: ",NbDateSentences/maxkey*100 , )
