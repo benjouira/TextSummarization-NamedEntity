@@ -69,3 +69,34 @@ word_frequencies
 max_frequency = max(word_frequencies.values())
 max_key = max(word_frequencies,key=word_frequencies.get)
 print (max_key,' : ',max_frequency)
+
+# ********************************
+# calculate the score of each word
+for key in word_frequencies.keys():
+    word_frequencies[key] = word_frequencies[key]/max_frequency
+
+word_frequencies
+
+# *******************************
+# calculate the weigh of sentences
+sentencesWeight = {}
+for key in tokenSentences.keys():
+    weight=0
+    for word in tokenSentences[key]:
+        if word.text in word_frequencies:
+            weight = weight + word_frequencies[word.text]
+            
+    sentencesWeight[key] = weight
+    
+sentencesWeight
+
+# *********************************
+# get most frequent sentences
+maxSentWeight = sorted(sentencesWeight, key=sentencesWeight.get, reverse=True)[:4]
+maxSentWeight
+
+# *****************************
+# final result 
+for key in tokenSentences.keys():
+    if key in maxSentWeight:
+        print (tokenSentences[key])
