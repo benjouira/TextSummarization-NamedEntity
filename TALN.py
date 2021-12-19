@@ -123,6 +123,7 @@ for key in tokenSentences.keys():
         print ("****************")
     maxkey=key
     
+    
 # ************************
 print("Le taux que represente les phrase qui ont une entity nommée DATE par raport le text est: ",NbDateSentences/maxkey*100 , )
 
