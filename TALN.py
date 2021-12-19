@@ -6,6 +6,7 @@ from string import punctuation
 
 # !python -m spacy download en_core_web_sm
 nlp = spacy.load("en_core_web_sm")
+
 # *****************************
 
 text = open("TexteBrut-AResumer.txt", "r")
